@@ -1,0 +1,37 @@
+.NYTCard{ 
+    min-width: 25%;
+    height: 100%;
+    overflow: scroll; 
+    color: white ;
+    text-align: center; 
+    margin-right: 30px; 
+    border:solid 3px tomato; 
+    background-color: tomato; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between ;
+
+} 
+
+.artTitle{ 
+    font-size: 20px; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+} 
+
+.artImg{ 
+    background-color: brown; 
+    height: 45%; 
+    overflow-y: scroll;
+    line-height: 200%;
+    white-space: pre-line;
+} 
+
+.artDate{ 
+    font-size: 12px;
+}  
+
+.artURL{ 
+    font-size: 10px;
+}
