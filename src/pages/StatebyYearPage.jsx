@@ -4,7 +4,7 @@ import ButtonRow from "../components/ButtonRow"
 import './StatebyYearPage.css'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom' 
 import StateFacts from '../components/StateFacts.jsx'
-import statefacts from '../components/statefacts'
+import statefacts from '../components/statefacts1'
 
 class StatebyYearPage extends Component {
     constructor(props) {
@@ -103,15 +103,21 @@ class StatebyYearPage extends Component {
 
         return (
             <div className="StatebyYearPage">
-                <Link to={{ pathname: '/' }}> Back to State Selection </Link>
+                <Link className="homelink" to={{ pathname: '/' }}> Back to State Selection </Link>
 
                 <ButtonRow Statename={this.state.state} />
                 <div className="Title">
                     {statename}
 
-                </div>
+                </div> 
+
+                <div className="toSide"> 
                 <div className="stateimg" > <img src={process.env.PUBLIC_URL + `/images/${statename1}.png`} /> </div>
-                <div> {Statef} </div>
+                <div> {Statef} </div> 
+                 </div>
+             
+
+
                 <div className="NYTArticles">
                     <div className="pic"> <img src={process.env.PUBLIC_URL + '/images/poweredby_nytimes_200c.png'} alt="" /> </div>
 

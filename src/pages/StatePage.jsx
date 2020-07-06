@@ -4,8 +4,8 @@ import { useLocation } from "react-router"
 import NYTCard from '../components/NYTCard'
 import ButtonRow from "../components/ButtonRow"
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
-import StateFacts from '../components/StateFacts'
-import statefacts from '../components/statefacts'
+import StateFacts from '../components/StateFacts.jsx'
+import statefacts from '../components/statefacts1'
 
 
 
@@ -32,8 +32,8 @@ class StatePage extends Component {
             return
         }
         let y = x.filter(findStateObj)
-        
-        this.setState({Statefacts: y})
+
+        this.setState({ Statefacts: y })
     }
 
     getArticles = () => {
@@ -82,33 +82,39 @@ class StatePage extends Component {
                 key={index} />
         })
 
-        let Statef = this.state.Statefacts 
-        
-        Statef = Statef.map( (data, index) => {  
+        let Statef = this.state.Statefacts
 
-            return <StateFacts key = {index} 
-            abbrev = { data.abbrev}
-            capital ={data.capital}
-            dateOfStatehood = {data.dateOfStatehood} />
-         
+        Statef = Statef.map((data, index) => {
+
+            return <StateFacts key={index}
+                abbrev={data.abbrev}
+                capital={data.capital}
+                dateOfStatehood={data.dateOfStatehood} />
+
         }
 
         )
-       
+
 
 
         return (
             <div className="StatePage">
-                <Link to={{ pathname: '/' }}> Back to State Selection </Link>
+                <Link className="homelink" to={{ pathname: '/' }}> Back to State Selection </Link>
 
                 <ButtonRow Statename={this.state.Statename} />
 
                 <div className="Title1">
                     {statename}
                 </div>
-                <img className="Stateimg" src={process.env.PUBLIC_URL + `../images/${statename1}.png`} /> 
 
-        <div> { Statef}</div>
+                <div className="toSide">
+                    <img className="Stateimg" src={process.env.PUBLIC_URL + `../images/${statename1}.png`} />
+
+                    <div> {Statef} </div>
+
+                </div>
+
+
 
 
                 <div ref={this.ArticlePlace} className="NYTArticles">
