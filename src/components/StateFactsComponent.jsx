@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 
-class StateFacts extends Component {
+class StateFactsComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
     }
     render() { 
         return (
@@ -19,4 +18,4 @@ class StateFacts extends Component {
     }
 }
  
-export default StateFacts;
+export default StateFactsComponent;

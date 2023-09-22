@@ -1,11 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 
 import './App.css';
 import StateCard from "./components/StateCard"
-import NavBar from "./components/NavBar"
-import StatePage from './pages/StatePage'
-import StatebyYearPage from './pages/StatebyYearPage'
+import StatebyYearPage from './pages/StatebyYearPage.js'
 
 
 
@@ -30,11 +28,11 @@ function App() {
 
         <div>
 
-          <Switch>
-            <Route exact path="/" component={StateCard} />
-            <Route exact path="/state/:state" component={StatePage} />
-            <Route path="/state/:state/:decade" component={StatebyYearPage} />
-          </Switch>
+          <Routes>
+            <Route exact path="/" element={<StateCard/>} />
+            {/* <Route exact path="/state/:state" component={StatePage} /> */}
+            <Route path="/state/:state/:decade" element={<StatebyYearPage/>} />
+          </Routes>
 
 
 

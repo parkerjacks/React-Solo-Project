@@ -7,37 +7,38 @@ import { Link } from 'react-router-dom'
 class MyButton extends Component {
     constructor(props) {
         super(props);
+        const year = this.props.year
+        let yearsArray = []
+        for (let i = 1; i < 10; i++) {
+            yearsArray.push(year + i)
+        }
         this.state = {
             year: this.props.year,
-            UsState: this.props.UsState
-
+            UsState: this.props.UsState,
+            yearsArray: yearsArray
         }
-
     }
 
     render() {
-        const year = this.state.year
-   
-
-
-
-
         return (
-            <Link to={
-                {
-                    pathname: `/state/${this.state.UsState}/${this.state.year}`,
-                    state: {
-                        year: this.state.year,
-                        UsState: this.state.UsState
-                    }
+            <div className='decade_button'>
+                <Link reloadDocument to={`/state/${this.state.UsState}/${this.state.year}`} 
+                    className="mybuttonlink"
+                >
+                    <Button className="mybutton" variant="secondary" > {this.state.year}</Button >
 
-                }
-            } >
+                </Link>
+                <div className='button_dropdown_menu'>
+                    {this.state.yearsArray.map(num => {
+                        return <Link reloadDocument  to={`/state/${this.state.UsState}/${num}`}
+                            className="button_dropdown_link"
+                        >
+                            <div className="button_dropdown_link_button" variant="secondary" >  {num} </div >
 
-                <Button className="mybutton" variant="secondary" > {year}</Button >
-
-            </Link>
-
+                        </Link>
+                    })}
+                </div>
+            </div>
         );
     }
 }

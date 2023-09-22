@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './State.css' 
+import './State.css'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 class State extends Component {
@@ -10,20 +10,15 @@ class State extends Component {
         }
     }
     render() {
-
-        
-
+        const d = new Date();
+        const currentYear = d.getFullYear();
         return (
-            <Link className="State" to= { 
-                {
-                    pathname: `/state/${this.state.stateName}`, 
-                    state: { 
-                          stateName:this.props.stateName
-                    }
-                }
-            }
-            
-            
+            <Link className="State" to={`/state/${this.state.stateName}/${currentYear}`}
+                state=
+                {{
+                    stateName: this.props.stateName,
+                    year: currentYear
+                }}
             >
 
                 {this.props.stateName}
