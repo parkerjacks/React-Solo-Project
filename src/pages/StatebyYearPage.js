@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import NYTCard from '../components/NYTCard'
 import ButtonRow from "../components/ButtonRow"
 import './StatebyYearPage.css'
@@ -6,20 +6,21 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import StateFactsComponent from '../components/StateFactsComponent.jsx'
 import stateInfo from '../components/statefacts1'
 import { useState, useEffect } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import LoadingAnimation from '../components/LoadingAnimation'
 
 function StatebyYearPage(props) {
-    let { state, decade } = useParams() ;
+    let [isLoading, setIsLoading] = useState(true)
+    let { state, decade } = useParams();
     let territory = state
-    let [articles, setArticles] = useState([])
-    let [firstRender, setFirstRender] = useState(true)
+    let [articles, setArticles] = useState(null)
     let stateDetails = stateInfo.find(obj => obj.statename = territory)
 
 
-    function getYearArt() {
+    async function getYearArt() {
         let begin_date = decade + "0101"
         let end_date = decade + "1231"
-        fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${territory}&api-key=${process.env.REACT_APP_NYT_PASS}&glocations=${state}&begin_date=${begin_date}&end_date=${end_date}`)
+        await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${territory}&api-key=${process.env.REACT_APP_NYT_PASS}&glocations=${state}&begin_date=${begin_date}&end_date=${end_date}`)
             .then(data => {
                 return data.json()
             }).then(res => {
@@ -31,16 +32,20 @@ function StatebyYearPage(props) {
                 }
             })
     }
-    function navigateToDifferentPage() {
-
-    }
     useEffect(() => {
         getYearArt()
     }, [decade]);
 
+    useEffect(()=>{ 
+        if(articles){ 
+            setIsLoading(false)
+        }
+    }, [articles])
 
     return (
         <div className="StatebyYearPage">
+            {isLoading && <LoadingAnimation />}
+            {/* {<LoadingAnimation />} */}
             <Link className="homelink" to={{ pathname: '/' }}> Back to State Selection </Link>
 
             <ButtonRow Statename={territory} />
@@ -64,7 +69,7 @@ function StatebyYearPage(props) {
                 <div className="pic"> <img src={process.env.PUBLIC_URL + '/images/poweredby_nytimes_200c.png'} alt="" /> </div>
 
                 <div className="-row"> {
-                    articles.map((data, index) => {
+                    articles?.map((data, index) => {
                         return <NYTCard
                             articleName={data.headline.main}
                             snippet={data.abstract}
@@ -74,7 +79,6 @@ function StatebyYearPage(props) {
                         />
 
                     })
-                    // decade
                 }
 
                 </div>

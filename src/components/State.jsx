@@ -13,30 +13,10 @@ class State extends Component {
         const d = new Date();
         const currentYear = d.getFullYear();
         return (
-            <Link className="State" to={`/state/${this.state.stateName}/${currentYear}`}
-                state=
-                {{
-                    stateName: this.props.stateName,
-                    year: currentYear
-                }}
-            >
+            <Link className="State" to={`/state/${this.state.stateName}/${currentYear}`} >
 
                 {this.props.stateName}
-
-
-
             </Link>
-
-
-
-
-
-
-
-
-
-
-
         );
     }
 }

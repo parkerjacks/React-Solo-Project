@@ -1,0 +1,125 @@
+.loadingAnimation {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingAnimation>* {
+    height: auto;
+    font-size: 60px
+}
+.loadingText { 
+    margin-right: 1%;
+}
+.loadidngDots {
+    opacity: 0
+}
+
+.firstDot {
+    color: red;
+}
+
+.secondDot {
+    color: green;
+}
+
+.thirdDot {
+    color: blue;
+}
+
+.loadingDots.firstDot {
+    animation: dotOne 2s infinite forwards;
+}
+
+.loadingDots.secondDot {
+    animation: dotTwo 2s infinite forwards;
+}
+
+.loadingDots.thirdDot {
+    animation: dotThree 2s infinite forwards;
+}
+
+@keyframes dotOne {
+    0% {
+        opacity: 1
+    }
+
+    ;
+
+    25% {
+        opacity: 1
+    }
+
+    ;
+
+    50% {
+        opacity: 1
+    }
+
+    ;
+
+    75% {
+        opacity: 1
+    }
+
+    ;
+
+    100% {
+        opacity: 1
+    }
+
+    ;
+
+}
+
+@keyframes dotTwo {
+
+    0% {
+        opacity: 0
+    }
+    25% {
+        opacity: 1
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    75% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+
+}
+
+@keyframes dotThree {
+    0% {
+        opacity: 0
+    }
+
+    25% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+    75% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
+
+}

@@ -31,12 +31,9 @@ class ButtonRow extends Component {
 
     componentDidMount() {
         this.yearButtons()
-
     }
 
     render() {
-        let UsState = this.state.UsState
-console.log(this.props)
         let button = this.state.years.map((number, index) => {
             return <MyButton
                 year={number}

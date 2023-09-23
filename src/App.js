@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import './App.css';
 import StateCard from "./components/StateCard"
@@ -16,8 +16,6 @@ function App() {
         <header>
           <div className="title"> United States Territories Study Tools </div>
 
-          {/* <NavBar /> */}
-
         </header>
 
         <div>
@@ -30,7 +28,6 @@ function App() {
 
           <Routes>
             <Route exact path="/" element={<StateCard/>} />
-            {/* <Route exact path="/state/:state" component={StatePage} /> */}
             <Route path="/state/:state/:decade" element={<StatebyYearPage/>} />
           </Routes>
 
