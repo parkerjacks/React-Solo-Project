@@ -2,7 +2,8 @@
 
 Project built with React to showcase information related to United States Territories. Makes of NY Times API to showcase articles for territories throughout the years.
 
-![](https://github.com/parkerjacks/React-Solo-Project/blob/master/React-Solo-Project.mov)
+
+https://github.com/parkerjacks/React-Solo-Project/assets/60246140/107d7d61-b250-48aa-b200-402121c3f769
 
 
 ## Getting Setup
